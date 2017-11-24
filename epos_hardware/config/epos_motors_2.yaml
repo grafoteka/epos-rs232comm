@@ -1,0 +1,10 @@
+# Time in seconds
+# Current in amps
+# position, velocity, and acceleration in device units
+left_drive_actuator:
+  actuator_name: hexapodo/left_drive_actuator
+  serial_number: '0x602060003001'
+
+right_drive_actuator:
+  actuator_name: hexapodo/right_drive_actuator
+  serial_number: '0x602060002998'

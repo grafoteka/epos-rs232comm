@@ -1,0 +1,96 @@
+<!-- Launch file for starting the base robot hardware -->
+<launch>
+
+  <param name="robot_description" textfile="$(find epos_hardware)/robot/example.urdf" />
+  <!-- <node name="epos_hardware" pkg="epos_hardware" type="epos_hardware_node" args="my_joint_actuator" output="screen">
+    <rosparam command="load" file="$(find epos_hardware)/launch/example.yaml" />
+  </node> -->
+
+  <!-- <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" respawn="true" respawn_delay="5" /> -->
+
+  <!-- <node name="base_mainboard" pkg="walrus_mainboard_driver" type="walrus_mainboard_node" respawn="true" respawn_delay="5">
+    <rosparam command="load" file="$(find walrus_mainboard_driver)/config/mainboard_param.yaml" />
+  </node> -->
+
+  <!-- <node name="base" pkg="walrus_pod_hw" type="walrus_pod_hw_node" respawn="true" respawn_delay="5">
+    <remap from="base/joint_states" to="joint_states" />
+    <param name="controller_rate" value="25.0" type="double" />
+    <rosparam command="load" file="$(find walrus_pod_hw)/config/pod_hw_config.yaml" />
+  </node> -->
+
+  <!-- <node name="base_epos" pkg="walrus_base_hw" type="epos_hw_node" respawn="true" respawn_delay="5"> -->
+    <node name="epos_hardware" pkg="epos_hardware" type="epos_hardware_node" args="'front_left_drive_actuator' 'middle_left_drive_actuator' 'back_left_drive_actuator' 'front_right_drive_actuator' 'middle_right_drive_actuator' 'back_right_drive_actuator'" output="screen">
+    <remap from="epos_hardware/joint_states" to="joint_states" />
+    <param name="controller_rate" value="10.0" type="double" />
+    <rosparam command="load" file="$(find epos_hardware)/config/epos_motors.yaml" />
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="front_left_drive_actuator"/>
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="middle_left_drive_actuator"/>
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="back_left_drive_actuator"/>
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="front_right_drive_actuator"/>
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="middle_right_drive_actuator"/>
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="back_right_drive_actuator"/>
+  </node>
+
+
+  <!-- Control en posicion -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="joint_state_controller1 position_controller1 joint_state_controller3 position_controller3 joint_state_controller5 position_controller5 joint_state_controller2 position_controller2 joint_state_controller4 position_controller4 joint_state_controller6 position_controller6"/>
+
+   <!--param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller/joint" value="test_joint" /-->
+
+  <param name="position_controller1/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller1/joint" value="test_joint1" />
+
+  <param name="joint_state_controller1/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller1/publish_rate" value="50" />
+
+
+  <!-- <param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller/joint" value="test_joint3" /> -->
+
+  <param name="position_controller3/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller3/joint" value="test_joint3" />
+
+  <param name="joint_state_controller3/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller3/publish_rate" value="50" />
+
+  <!-- <param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller/joint" value="test_joint3" /> -->
+
+  <param name="position_controller5/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller5/joint" value="test_joint5" />
+
+  <param name="joint_state_controller5/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller5/publish_rate" value="50" />
+
+  <!-- <param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller/joint" value="test_joint3" /> -->
+
+  <param name="position_controller2/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller2/joint" value="test_joint2" />
+
+  <param name="joint_state_controller2/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller2/publish_rate" value="50" />
+
+  <!-- <param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller/joint" value="test_joint3" /> -->
+
+  <param name="position_controller4/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller4/joint" value="test_joint4" />
+
+  <param name="joint_state_controller4/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller4/publish_rate" value="50" />
+
+  <!-- <param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller/joint" value="test_joint3" /> -->
+
+  <param name="position_controller6/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller6/joint" value="test_joint6" />
+
+  <param name="joint_state_controller6/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller6/publish_rate" value="50" />
+
+
+
+</launch>
