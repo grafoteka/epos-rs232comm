@@ -1,0 +1,39 @@
+<launch>
+
+  <param name="robot_description" textfile="$(find epos_hardware)/robot/example_2_motor.urdf" />
+
+  <node name="epos_hardware" pkg="epos_hardware" type="epos_hardware_node"
+        args="'left_drive_actuator' 'right_drive_actuator'"
+        output="screen">
+    <remap from="epos_hardware/joint_states" to="joint_states" />
+    <param name="controller_rate" value="10.0" type="double" />
+    <rosparam command="load" file="$(find epos_hardware)/config/epos_motors_2.yaml" />
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="left_drive_actuator"/>
+    <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="right_drive_actuator"/>
+  </node>
+
+  <!-- Control en velocidad -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen"
+        args="joint_state_controller1 velocity_controller1
+              joint_state_controller2 velocity_controller2"/>
+
+  <param name="velocity_controller1/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller1/joint" value="test_joint12" />
+
+  <param name="position_controller1/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller1/joint" value="test_joint12" />
+
+  <param name="joint_state_controller1/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller1/publish_rate" value="50" />
+
+  <param name="velocity_controller2/type" value="velocity_controllers/JointVelocityController" />
+  <param name="velocity_controller2/joint" value="test_joint13" />
+
+  <param name="position_controller2/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller2/joint" value="test_joint13" />
+
+  <param name="joint_state_controller2/type" value="joint_state_controller/JointStateController" />
+  <param name="joint_state_controller2/publish_rate" value="50" />
+
+</launch>

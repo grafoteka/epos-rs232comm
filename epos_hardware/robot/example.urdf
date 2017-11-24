@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot name="example">
+
+  <!-- MOTOR 1 -->
+  <link name="link11">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <link name="link12">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <joint name="test_joint" type="revolute">
+    <parent link="link11"/>
+    <child link="link12"/>
+  </joint>
+  <transmission name="test_joint_trans_1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="test_joint_1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="test_joint_actuator_1">
+      <mechanicalReduction>333.0</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- MOTOR 2 -->
+    <link name="link21">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <link name="link22">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+  <joint name="test_joint" type="revolute">
+    <parent link="link21"/>
+    <child link="link22"/>
+  </joint>
+  <transmission name="test_joint_trans_2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="test_joint_2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="test_joint_actuator_2">
+      <mechanicalReduction>1000</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+</robot>

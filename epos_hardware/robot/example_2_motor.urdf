@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot name="example">
+
+  <link name="link1">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <link name="link2">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <link name="link3">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <joint name="test_joint12" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+  </joint>
+
+  <joint name="test_joint13" type="revolute">
+    <parent link="link1"/>
+    <child link="link3"/>
+  </joint>
+
+  <transmission name="test_joint_trans12">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="test_joint12">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="hexapodo/left_drive_actuator">
+      <mechanicalReduction>1000</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="test_joint_trans13">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="test_joint13">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="hexapodo/right_drive_actuator">
+      <mechanicalReduction>1000</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+</robot>

@@ -1,0 +1,36 @@
+# Time in seconds
+# Current in amps
+# position, velocity, and acceleration in device units
+operation_mode: 'profile_velocity'
+clear_faults: true
+halt_velocity: false
+torque_constant: 3 #0.0263 Nm
+communication_protocol: 'RS232' # or USB
+
+motor:
+  type: 10
+  ec_motor:
+    nominal_current: 2.6000
+    max_output_current: 9.000
+    thermal_time_constant: 2.7 # Maxon EPOS Getting Started pagina 12
+    number_of_pole_pairs: 1
+
+sensor:
+  type: 1
+  incremental_encoder:
+    resolution: 1000
+    inverted_polarity: false
+
+safety:
+  max_following_error: 20000
+  max_profile_velocity: 8000
+  #max_acceleration: 12000
+
+#position_profile:
+  #velocity: 10000
+  #acceleration: 8000
+  #deceleration: 3500
+
+velocity_profile:
+  acceleration: 8000
+  deceleration: 3500
