@@ -5,29 +5,29 @@
 #Motor 1
 front_left_drive_actuator:
   actuator_name: hexapodo/front_left_drive_actuator
-  serial_number: '602060003001'
+  serial_number: '0x602060003001'
 
 #Motor 2
 front_right_drive_actuator:
   actuator_name: hexapodo/front_right_drive_actuator
-  serial_number: '602060002998'
+  serial_number: '0x602060002998'
 
 #Motor 3
 middle_left_drive_actuator:
   actuator_name: hexapodo/middle_left_drive_actuator
-  serial_number: '602060003005'
+  serial_number: '0x602060003005'
 
 #Motor 4
 middle_right_drive_actuator:
   actuator_name: hexapodo/middle_right_drive_actuator
-  serial_number: '602060003002'
+  serial_number: '0x602060003002'
 
 #Motor 5
 back_left_drive_actuator:
   actuator_name: hexapodo/back_left_drive_actuator
-  serial_number: '602060003010'
+  serial_number: '0x602060003010'
 
 #Motor 6
 back_right_drive_actuator:
   actuator_name: hexapodo/back_right_drive_actuator
-  serial_number: '602060003013'
+  serial_number: '0x602060003013'

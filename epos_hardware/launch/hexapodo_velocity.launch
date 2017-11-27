@@ -7,8 +7,8 @@
               'front_right_drive_actuator' 'middle_right_drive_actuator' 'back_right_drive_actuator'"
         output="screen">
     <remap from="epos_hardware/joint_states" to="joint_states" />
-    <param name="controller_rate" value="10.0" type="double" />
-    <rosparam command="load" file="$(find epos_hardware)/config/epos_motors.yaml" />
+    <param name="controller_rate" value="50.0" type="double" />
+    <rosparam command="load" file="$(find epos_hardware)/config/epos_motors_6.yaml" />
     <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="front_left_drive_actuator"/>
     <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="middle_left_drive_actuator"/>
     <rosparam command="load" file="$(find epos_hardware)/config/drive_epos_motor.yaml" param="back_left_drive_actuator"/>
@@ -28,38 +28,56 @@
               joint_state_controller6 velocity_controller6"/>
 
   <param name="velocity_controller1/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller1/joint" value="test_joint1" />
+  <param name="velocity_controller1/joint" value="joint_1" />
+
+  <param name="position_controller1/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller1/joint" value="joint_1" />
 
   <param name="joint_state_controller1/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller1/publish_rate" value="50" />
 
 
   <param name="velocity_controller3/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller3/joint" value="test_joint3" />
+  <param name="velocity_controller3/joint" value="joint_3" />
+
+  <param name="position_controller3/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller3/joint" value="joint_3" />
 
   <param name="joint_state_controller3/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller3/publish_rate" value="50" />
 
   <param name="velocity_controller5/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller5/joint" value="test_joint5" />
+  <param name="velocity_controller5/joint" value="joint_5" />
+
+  <param name="position_controller5/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller5/joint" value="joint_5" />
 
   <param name="joint_state_controller5/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller5/publish_rate" value="50" />
 
   <param name="velocity_controller2/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller2/joint" value="test_joint2" />
+  <param name="velocity_controller2/joint" value="joint_2" />
+
+  <param name="position_controller2/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller2/joint" value="joint_2" />
 
   <param name="joint_state_controller2/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller2/publish_rate" value="50" />
 
   <param name="velocity_controller4/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller4/joint" value="test_joint4" />
+  <param name="velocity_controller4/joint" value="joint_4" />
+
+  <param name="position_controller4/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller4/joint" value="joint_4" />
 
   <param name="joint_state_controller4/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller4/publish_rate" value="50" />
 
+  <param name="position_controller6/type" value="position_controllers/JointPositionController" />
+  <param name="position_controller6/joint" value="joint_6" />
+
   <param name="velocity_controller6/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller6/joint" value="test_joint6" />
+  <param name="velocity_controller6/joint" value="joint_6" />
 
   <param name="joint_state_controller6/type" value="joint_state_controller/JointStateController" />
   <param name="joint_state_controller6/publish_rate" value="50" />

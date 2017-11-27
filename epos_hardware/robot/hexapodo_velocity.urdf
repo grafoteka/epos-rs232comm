@@ -1,215 +1,267 @@
 <?xml version="1.0"?>
 <robot name="example">
 
-<!-- LADO IZQUIERDO  -->
+<!-- CHASSIS -->
+  <link name="chassis">
+    <inertial>
+      <origin xyz="${0/1e3} 0 ${1.417/1000}" rpy="${pi/2} 0 ${pi/2}"/>
+        <mass value="5.771"/>
+        <inertia ixx="${207161.695/(1e6)}"
+                 ixy="${0}"                 iyy="${117325.409/(1e6)}"
+                 ixz="${0}"                 iyz="${0}"                  izz="${320415.187/(1e6)}"/>
+    </inertial>
 
-<!-- MOTOR 1 -->
-  <link name="link11">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
+    <visual>
+      <origin xyz="${-300/1e3} 0 0" rpy="${pi/2} 0 ${pi/2}"/>
+      <geometry>
+        <mesh filename="package://rhex_description/meshes/caja.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="base_link_material">
+        <color rgba="${51/255} ${102/255} ${0/255} 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="${-300/1e3} 0 0" rpy="${pi/2} 0 ${pi/2}"/>
+      <geometry>
+        <mesh filename="package://epos_hardware/robot/caja.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
   </link>
+
+<!-- LEG 1 -->
+<link name="leg_1">
+  <inertial>
+    <mass value="0.057"/>
+    <inertia ixx="${1038.176/(1e6)}"
+                         ixy="${-218.169/(1e6)}"     iyy="${273.753/(1e6)}"
+                         ixz="${59.956/(1e6)}"       iyz="${153.627/(1e6)}"      izz="${1217.746/(1e6)}"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://epos_hardware/robot/pvc.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+  </visual>
+
+</link>
+
+<!-- LEG 2 -->
+<link name="leg_2">
+  <inertial>
+    <mass value="0.057"/>
+    <inertia ixx="${1038.176/(1e6)}"
+                         ixy="${-218.169/(1e6)}"     iyy="${273.753/(1e6)}"
+                         ixz="${59.956/(1e6)}"       iyz="${153.627/(1e6)}"      izz="${1217.746/(1e6)}"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="1.57 0 0"/>
+    <geometry>
+      <mesh filename="package://epos_hardware/robot/pvc.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+  </visual>
+</link>
+
+<!-- LEG 3 -->
+<link name="leg_3">
+<inertial>
+  <mass value="0.057"/>
+  <inertia ixx="${1038.176/(1e6)}"
+                       ixy="${-218.169/(1e6)}"     iyy="${273.753/(1e6)}"
+                       ixz="${59.956/(1e6)}"       iyz="${153.627/(1e6)}"      izz="${1217.746/(1e6)}"/>
+</inertial>
+<visual>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+    <mesh filename="package://epos_hardware/robot/pvc.stl" scale="0.001 0.001 0.001"/>
+  </geometry>
+  <material name="Grey">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+</visual>
+</link>
+
+<!-- LEG 4 -->
+<link name="leg_4">
+<inertial>
+  <mass value="0.057"/>
+  <inertia ixx="${1038.176/(1e6)}"
+                       ixy="${-218.169/(1e6)}"     iyy="${273.753/(1e6)}"
+                       ixz="${59.956/(1e6)}"       iyz="${153.627/(1e6)}"      izz="${1217.746/(1e6)}"/>
+</inertial>
+<visual>
+  <origin xyz="0 0 0" rpy="1.57 0 0"/>
+  <geometry>
+    <mesh filename="package://epos_hardware/robot/pvc.stl" scale="0.001 0.001 0.001"/>
+  </geometry>
+  <material name="Grey">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+</visual>
+</link>
+
+<!-- LEG 5 -->
+<link name="leg_5">
+<inertial>
+  <mass value="0.057"/>
+  <inertia ixx="${1038.176/(1e6)}"
+                       ixy="${-218.169/(1e6)}"     iyy="${273.753/(1e6)}"
+                       ixz="${59.956/(1e6)}"       iyz="${153.627/(1e6)}"      izz="${1217.746/(1e6)}"/>
+</inertial>
+<visual>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+    <mesh filename="package://epos_hardware/robot/pvc.stl" scale="0.001 0.001 0.001"/>
+  </geometry>
+  <material name="Grey">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+</visual>
+</link>
+
+<!-- LEG 6 -->
+<link name="leg_6">
+<inertial>
+  <mass value="0.057"/>
+  <inertia ixx="${1038.176/(1e6)}"
+                       ixy="${-218.169/(1e6)}"     iyy="${273.753/(1e6)}"
+                       ixz="${59.956/(1e6)}"       iyz="${153.627/(1e6)}"      izz="${1217.746/(1e6)}"/>
+</inertial>
+<visual>
+  <origin xyz="0 0 0" rpy="1.57 0 0"/>
+  <geometry>
+    <mesh filename="package://epos_hardware/robot/pvc.stl" scale="0.001 0.001 0.001"/>
+  </geometry>
+  <material name="Grey">
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+</visual>
+</link>
   
-  <link name="link12">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-  
-  <joint name="test_joint" type="revolute">
-    <parent link="link11"/>
-    <child link="link12"/>
+<!-- JOINT 1 -->
+  <joint name="joint_1" type="revolute">
+    <parent link="chassis"/>
+    <child link="leg_1"/>
+    <!--limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
+    ## effort in  (N-m )
+    ## velocity in rad/s
+    </limit-->
+  </joint>
+
+  <transmission name="transmission_1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="hexapodo/front_left_drive_actuator">
+      <mechanicalReduction>33.0625</mechanicalReduction> <!-- 529/16 -->
+    </actuator>
+  </transmission>
+
+<!-- JOINT 2 -->
+  <joint name="joint_2" type="revolute">
+    <parent link="chassis"/>
+    <child link="leg_2"/>
     <limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
     ## effort in  (N-m )
     ## velocity in rad/s
     </limit>
   </joint>
 
-  <transmission name="test_joint_trans1">
+  <transmission name="transmission_2">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="test_joint1">
+    <joint name="joint_2">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="epos_hardware/front_left_drive_actuator">
+    <actuator name="hexapodo/front_right_drive_actuator">
       <mechanicalReduction>33.0625</mechanicalReduction> <!-- 529/16 -->
     </actuator>
   </transmission>
 
 
-<!-- MOTOR 3 -->
- <link name="link31">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <link name="link32">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <joint name="test_joint3" type="revolute">
-    <parent link="link31"/>
-    <child link="link32"/>
+<!-- JOINT 3-->
+  <joint name="joint_3" type="revolute">
+    <parent link="chassis"/>
+    <child link="leg_3"/>
     <limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
     ## effort in  (N-m )
     ## velocity in rad/s
     </limit>
   </joint>
 
-  <transmission name="test_joint_trans3">
+  <transmission name="transmission_3">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="test_joint3">
+    <joint name="joint_3">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="epos_hardware/middle_left_drive_actuator">
-      <mechanicalReduction>33.0625</mechanicalReduction> <!-- 529/16 -->
-    </actuator>
-  </transmission>
-
-
-<!-- MOTOR  5-->
- <link name="link51">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <link name="link52">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <joint name="test_joint5" type="revolute">
-    <parent link="link51"/>
-    <child link="link52"/>
-    <limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
-    ## effort in  (N-m )
-    ## velocity in rad/s
-    </limit>
-  </joint>
-
-  <transmission name="test_joint_trans5">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="test_joint5">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="epos_hardware/back_left_drive_actuator">
+    <actuator name="hexapodo/middle_left_drive_actuator">
       <mechanicalReduction>330.625</mechanicalReduction> <!-- 529/16 -->
     </actuator>
   </transmission>
 
-<!-- LADO DERECHO  -->
-
-<!-- MOTOR 2 -->
- <link name="link21">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <link name="link22">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <joint name="test_joint2" type="revolute">
-    <parent link="link21"/>
-    <child link="link22"/>
+<!-- JOINT 4 -->
+  <joint name="joint_4" type="revolute">
+    <parent link="chassis"/>
+    <child link="leg_4"/>
     <limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
     ## effort in  (N-m )
     ## velocity in rad/s
     </limit>
   </joint>
 
-  <transmission name="test_joint_trans2">
+  <transmission name="transmission_4">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="test_joint2">
+    <joint name="joint_4">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="epos_hardware/right_drive_actuator">
+    <actuator name="hexapodo/middle_right_drive_actuator">
       <mechanicalReduction>33.0625</mechanicalReduction> <!-- 529/16 -->
     </actuator>
   </transmission>
 
 
-<!-- MOTOR 4 -->
- <link name="link41">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <link name="link42">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <joint name="test_joint4" type="revolute">
-    <parent link="link41"/>
-    <child link="link42"/>
+<!-- JOINT 5 -->
+  <joint name="joint_5" type="revolute">
+    <parent link="chassis"/>
+    <child link="leg_5"/>
     <limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
     ## effort in  (N-m )
     ## velocity in rad/s
     </limit>
   </joint>
 
-  <transmission name="test_joint_trans4">
+  <transmission name="transmission_5">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="test_joint4">
+    <joint name="joint_5">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="epos_hardware/middle_right_drive_actuator">
+    <actuator name="hexapodo/back_left_drive_actuator">
       <mechanicalReduction>33.0625</mechanicalReduction> <!-- 529/16 -->
     </actuator>
   </transmission>
 
 
-
-<!-- MOTOR 6 -->
- <link name="link61">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <link name="link62">
-    <inertial>
-      <mass value="1"/>
-      <inertia ixx="1" iyy="1" izz="1" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </link>
-
-  <joint name="test_joint6" type="revolute">
-    <parent link="link61"/>
-    <child link="link62"/>
+<!-- JOINT 6 -->
+  <joint name="joint_6" type="revolute">
+    <parent link="chassis"/>
+    <child link="leg_6"/>
     <limit lower="-10000.0" upper="10000.0" effort="3.5" velocity="38.0">
     ## effort in  (N-m )
     ## velocity in rad/s
     </limit>
   </joint>
 
-  <transmission name="test_joint_trans6">
+  <transmission name="transmission_6">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="test_joint6">
+    <joint name="joint_6">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="epos_hardware/back_right_drive_actuator">
+    <actuator name="hexapodo/back_right_drive_actuator">
       <mechanicalReduction>33.0625</mechanicalReduction> <!-- 529/16 -->
     </actuator>
   </transmission>
