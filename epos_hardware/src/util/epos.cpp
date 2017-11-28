@@ -616,7 +616,7 @@ void Epos::write() {
       return;
     //ROS_INFO("valor %d", velocity_cmd_);
     int cmd = (int)velocity_cmd_;
-    ROS_INFO("valor %d", cmd);
+    //ROS_INFO("valor %d", cmd);
     if(max_profile_velocity_ >= 0) {
       if(cmd < -max_profile_velocity_)
 	cmd = -max_profile_velocity_;

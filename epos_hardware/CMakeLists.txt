@@ -16,6 +16,10 @@ catkin_package(
   CATKIN_DEPENDS epos_library hardware_interface roscpp controller_manager diagnostic_updater
 )
 
+#Add custom (non compiling) targets so launch scripts and python files show up in QT Creator's project view.
+#file(GLOB_RECURSE EXTRA_FILES */*)
+#add_custom_target(${PROJECT_NAME}_OTHER_FILES ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} SOURCES ${EXTRA_FILES})
+
 ###########
 ## Build ##
 ###########
@@ -66,7 +70,8 @@ target_link_libraries(epos_hardware
 )
 
 
-add_executable(epos_hardware_node src/nodes/epos_hardware_node.cpp)
+add_executable(
+  epos_hardware_node src/nodes/epos_hardware_node.cpp)
 target_link_libraries(epos_hardware_node
   ${catkin_LIBRARIES}
   epos_hardware
@@ -103,7 +108,3 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h"
   PATTERN ".svn" EXCLUDE
 )
-
-#Add custom (non compiling) targets so launch scripts and python files show up in QT Creator's project view.
-file(GLOB_RECURSE EXTRA_FILES */*)
-add_custom_target(${PROJECT_NAME}_OTHER_FILES ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} SOURCES ${EXTRA_FILES})
